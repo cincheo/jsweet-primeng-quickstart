@@ -70,12 +70,6 @@ public class AppComponent {
 		this.carService.getCarsMedium().thenOnFulfilledFunction(cars -> this.cars = array(cars));
 	}
 
-	// public AppComponent() {
-	// }
-	//
-	// void ngOnInit() {
-	// }
-
 	void showDialogToAdd() {
 		this.newCar = true;
 		this.car = new PrimeCar();
