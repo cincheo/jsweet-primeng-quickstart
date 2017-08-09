@@ -1,6 +1,6 @@
 package app.cars;
 
-import static jsweet.util.Globals.$get;
+import static jsweet.util.Lang.object;
 
 import def.angular.core.Injectable;
 import def.angular.http.Http;
@@ -17,7 +17,7 @@ public class CarService {
 
 	public Promise<Car[]> getCarsMedium() {
 		return this.http.get("app/resources/data/cars-medium.json").toPromise()
-				.thenOnFulfilledFunction(res -> (Car[]) $get(res.json(), "data")) //
+				.thenOnFulfilledFunction(res -> (Car[]) object(res.json()).$get("data")) //
 				.thenOnFulfilledFunction(data -> {
 					return data;
 				});

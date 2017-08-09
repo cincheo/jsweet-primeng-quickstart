@@ -1,19 +1,19 @@
 package app;
 
-import static jsweet.util.Globals.$get;
-import static jsweet.util.Globals.array;
+import static jsweet.util.Lang.array;
 
 import app.cars.Car;
 import app.cars.CarService;
 import def.angular.core.Component;
-import jsweet.dom.Event;
-import jsweet.lang.Array;
+import def.dom.Event;
+import def.js.Array;
 
 class PrimeCar extends Car {
 	public String vin;
 	public int year;
 	public String brand;
 	public String color;
+	public String other = "xxx";
 
 	public PrimeCar(String vin, int year, String brand, String color) {
 		super();
@@ -21,24 +21,6 @@ class PrimeCar extends Car {
 		this.year = year;
 		this.brand = brand;
 		this.color = color;
-	}
-
-	public PrimeCar(String vin, int year, String brand) {
-		super();
-		this.vin = vin;
-		this.year = year;
-		this.brand = brand;
-	}
-
-	public PrimeCar(String vin, int year) {
-		super();
-		this.vin = vin;
-		this.year = year;
-	}
-
-	public PrimeCar(String vin) {
-		super();
-		this.vin = vin;
 	}
 
 	public PrimeCar() {
@@ -94,16 +76,12 @@ public class AppComponent {
 
 	void onRowSelect(Event event) {
 		this.newCar = false;
-		this.car = this.cloneCar($get(event, "data"));
+		this.car = this.cloneCar(event.$get("data"));
 		this.displayDialog = true;
 	}
 
 	Car cloneCar(Car c) {
 		return new PrimeCar(c.vin, c.year, c.brand, c.color);
-		// for(let prop in c) {
-		// car[prop] = c[prop];
-		// }
-		// return car;
 	}
 
 	int findSelectedCarIndex() {
