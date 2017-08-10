@@ -1,6 +1,6 @@
 {
-  "name": "primeng-quickstart",
-  "version": "v1.0.0-SNAPSHOT",
+  "name": "jsweet-primeng-quickstart",
+  "version": "v2.0.0-SNAPSHOT",
   "scripts": {
     "lite": "lite-server",
     "start": "concurrently \"mvn jsweet:watch\" \"npm run lite\" "
